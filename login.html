@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> NGO Staff Directory</title>
+  <link rel="stylesheet" href="login.css">
+  <style>
+    .container {
+     text-align: center;
+     margin-top: 30px;
+     box-shadow: 0 0 10px rgb(13, 233, 185);
+    }
+
+    .container img{
+      margin-bottom: 10px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgb(13, 233, 185);
+    }
+    .form-container {
+      text-align: center;
+      margin-top: 30px;
+      box-shadow: 0 0 10px rgb(13, 233, 185);
+    }
+    #preview {
+      margin-top: 15px;
+      max-width: 200px;
+      border: 1px solid #ccc;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <img src="logo.png" class="logo">
+  <h1><u>NGO Staff Directory Form</u></h1>
+   
+  <form id="staffForm"action="NP.php" method="POST" enctype="multipart/form-data">
+    <input type="text" name="name" id="name" placeholder="Full Name" required />
+    <input type="date" name="DOB" id="DOB" placeholder="Date Of Birth" required />
+    <input type="email" name="email" id="email" placeholder="Email" required />
+    <input type="tel" name="phone" id="phone" placeholder="Phone Number" required />
+    <input type="text" name="Bio" id="Bio" placeholder="Bio" required />
+    <input type="text" name="JR" id="JR" placeholder="Job role" required />
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title><ul>Show Uploaded File in Form</ul></title>
+        
+      
+    <div class="form-container">
+      <h2><u>Upload Profile Photo</u></h2>
+      <form id="uploadForm">
+      <input type="file" name="photo" id="photoInput" accept="image/" required><br><br>
+      image preview shown here
+      <img id="preview" src="#" alt="Image Preview">
+    </div>  
+    
+    <br><br>
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+</div>
+        
+
+<script>
+  const photoInput = document.getElementById('photoInput');
+  const preview = document.getElementById('preview');
+      
+  photoInput.addEventListener('change', function () {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        preview.src = event.target.result;
+        preview.style.display = 'block'; // Show the image
+      }
+      reader.readAsDataURL(file); // Convert image to base64
+    } else {
+      preview.style.display = 'none';
+    }
+  });
+</script>
+      
+</body>
+</html>
+      <<!--<form id="myform" action="NP.php" method="POST">
+      <br><br>
+  <button type="submit" class="submit-btn">Submit</button>
+</form>
+<div>
+    <h2> Staff Directory List</h2>
+    <ul id="staffList"></ul>
+  </div>
+
+  <script src="info.js"></script>
+</body>
+</html>-->

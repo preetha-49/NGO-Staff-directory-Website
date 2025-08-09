@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="login-box">
+    <h2><img src="D:\NGO Staff Dict Form\Images\hdd.jpg"></h2><br>
+    <h1><u style="color: rgb(13, 233, 185);">Login</u></h1>
+    <form id="loginForm">
+      <div class="user-box">
+        <input type="text" id="username" required>
+        <label>Username</label>
+      </div>
+      <div class="user-box">
+        <input type="password" id="password" required>
+        <label>Password</label>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <p id="result" class="message"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<style>
+body {
+  background-color: #d4edda;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.login-box {
+  background: #1e1e1e;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(13, 233, 185);
+}
+
+.login-box h2 {
+  margin-bottom: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 10px rgb(13, 233, 185);
+}
+
+.login-box h1 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.user-box {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.user-box input {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 2px solid rgb(13, 233, 185);
+  background: transparent;
+  color: #fff;
+  font-size: 16px;
+}
+
+.user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #aaa;
+  transition: 0.3s;
+}
+
+.user-box input:focus + label,
+.user-box input:valid + label {
+  top: -20px;
+  font-size: 12px;
+  color: rgb(13, 233, 185);
+}
+
+button {
+  background: rgb(13, 233, 185);
+  border: none;
+  padding: 10px 20px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.message {
+  margin-top: 20px;
+  text-align: center;
+}
+</style>
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // prevent form reload
+
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  const result = document.getElementById("result");
+
+  // Example validation (replace with real authentication)
+  if (username === "admin" && password === "1234") {
+    result.textContent = "Login successful!";
+    result.style.color = "cyan";
+  } else {
+    result.textContent = "Invalid username or password.";
+    result.style.color = "red";
+  }
+});
+</script>
